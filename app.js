@@ -10,7 +10,7 @@ app.use(cookieParser())
 app.use(cors())
 app.use(
    cors({
-      origin: "*",
+      origin: ["http://localhost:3000/"],
       credentials: true,
       methods: ["GET", "POST", "PUT", "DELETE"],
    })
