@@ -11,7 +11,7 @@ export const loginUser = async (req, res) => {
       const options = {
          expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
          httpOnly: true,
-         secure: false,
+         secure: true,
          sameSite: "none",
       };
       res.status(200).cookie("token", token, options).json({ success: true, user })
@@ -43,17 +43,17 @@ export const registerUser = async (req, res) => {
 
 export const logoutUser = async (req, res) => {
    try {
-      const options = {
-         expires: new Date(Date.now()),
-         httpOnly: true,
-         secure: true,
-         sameSite: "none",
-      };
-      res.status(200).cookie("token", null, options).json({ success: true, message: "Logout Successfully" })
+     const options = {
+       expires: new Date(0), // Set expiration date to a past date
+       httpOnly: true,
+       secure: true,
+       sameSite: "none",
+     };
+     res.status(200).cookie("token", "", options).json({ success: true, message: "Logout Successfully" });
    } catch (error) {
-      return res.status(200).json({ success: false, message: error.message })
+     return res.status(500).json({ success: false, message: error.message });
    }
-}
+ };
 
 export const profile = async (req, res) => {
    try {
