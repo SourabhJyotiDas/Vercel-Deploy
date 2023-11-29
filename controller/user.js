@@ -55,7 +55,6 @@ export const logoutUser = async (req, res) => {
    }
 }
 
-
 export const profile = async (req, res) => {
    try {
       let user = await User.findById(req.user._id)

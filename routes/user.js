@@ -9,5 +9,4 @@ Router.route("/login").post(loginUser);
 Router.route("/logout").get(logoutUser);
 Router.route("/me").get(isAuthenticated, profile);
 
-
 export default Router;

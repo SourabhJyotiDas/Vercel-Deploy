@@ -7,4 +7,4 @@ export const connectToDatabase = async () => {
       } catch (error) {
             console.log(error);
       }
-}
+};

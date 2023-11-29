@@ -20,7 +20,6 @@ const schema = new mongoose.Schema({
             minLength: [6, "Password must be at least 6 characters"],
             select: false,
       },
-
       createdAt: {
             type: Date,
             default: Date.now,
