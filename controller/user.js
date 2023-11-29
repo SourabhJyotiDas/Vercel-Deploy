@@ -49,7 +49,7 @@ export const logoutUser = async (req, res) => {
        secure: true,
        sameSite: "none",
      };
-     res.status(200).cookie("token", "", options).json({ success: true, message: "Logout Successfully" });
+     res.status(200).cookie("token", "null", options).json({ success: true, message: "Logout Successfully" });
    } catch (error) {
      return res.status(500).json({ success: false, message: error.message });
    }
